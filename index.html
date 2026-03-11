@@ -1,68 +1,244 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>Day Collection Luxe</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day Collection Luxe</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eaf6ff;
+      color: #333;
+    }
 
-body{
-font-family: Arial;
-background:#eaf6ff;
-text-align:center;
-margin:0;
-}
+    header {
+      background: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+    }
 
-header{
-background:white;
-padding:40px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #c9972b;
+    }
 
-h1{
-color:#c89b3c;
-font-size:40px;
-}
+    nav a {
+      text-decoration: none;
+      color: #444;
+      margin-left: 20px;
+      font-size: 16px;
+    }
 
-p{
-color:#444;
-font-size:18px;
-}
+    nav a:hover {
+      color: #c9972b;
+    }
 
-.hero{
-padding:100px 20px;
-}
+    .hero {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: linear-gradient(to bottom, #dff0fb, #ffffff);
+    }
 
-button{
-background:#c89b3c;
-color:white;
-border:none;
-padding:15px 30px;
-font-size:18px;
-border-radius:30px;
-cursor:pointer;
-}
+    .hero h1 {
+      font-size: 48px;
+      color: #3b2a1a;
+      margin-bottom: 20px;
+    }
 
-</style>
+    .hero h1 span {
+      color: #c9972b;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #c9972b;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background: #b78622;
+    }
+
+    .section {
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .section.white {
+      background: white;
+    }
+
+    .section.blue {
+      background: #f4fbff;
+    }
+
+    .section h2 {
+      font-size: 34px;
+      color: #3b2a1a;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      color: #666;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      width: 280px;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      color: #c9972b;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    footer {
+      background: white;
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>Day Collection Luxe</h1>
-<p>Luxury Fragrance & Jewelry</p>
-</header>
+  <header>
+    <div class="logo">Day Collection Luxe</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#perfumes">Perfumes</a>
+      <a href="#joyeria">Joyería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
 
-<section class="hero">
+  <section class="hero" id="inicio">
+    <h1>Day Collection <span>Luxe</span></h1>
+    <p>
+      Perfumes y joyería elegantes para hombres y mujeres. Un estilo delicado, moderno y lujoso para cada momento.
+    </p>
+    <a href="#perfumes" class="btn">Explorar colección</a>
+  </section>
 
-<h2>Elegancia en Perfumes y Joyas</h2>
+  <section class="section white" id="perfumes">
+    <h2>Perfumes</h2>
+    <p>
+      Descubre fragancias con personalidad, frescura y elegancia, diseñadas para complementar tu estilo.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <h3>Fragancias Dama</h3>
+        <p>Aromas suaves, florales y sofisticados para resaltar tu esencia.</p>
+      </div>
+      <div class="card">
+        <h3>Fragancias Caballero</h3>
+        <p>Notas intensas, limpias y modernas para un estilo seguro y elegante.</p>
+      </div>
+      <div class="card">
+        <h3>Colección Unisex</h3>
+        <p>Perfumes versátiles que combinan lujo, frescura y personalidad.</p>
+      </div>
+    </div>
+  </section>
 
-<p>
-Descubre fragancias y piezas únicas diseñadas para hombres y mujeres.
-</p>
+  <section class="section blue" id="joyeria">
+    <h2>Joyería</h2>
+    <p>
+      Piezas delicadas y modernas para elevar cualquier look con brillo y exclusividad.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <h3>Collares</h3>
+        <p>Diseños finos y elegantes que complementan tu estilo con lujo.</p>
+      </div>
+      <div class="card">
+        <h3>Pulseras</h3>
+        <p>Detalles sutiles y sofisticados para cada ocasión.</p>
+      </div>
+      <div class="card">
+        <h3>Anillos</h3>
+        <p>Piezas modernas con acabados delicados y un toque premium.</p>
+      </div>
+    </div>
+  </section>
 
-<button>Explorar colección</button>
+  <section class="section white" id="contacto">
+    <h2>Contacto</h2>
+    <p>
+      Muy pronto podrás comprar tus perfumes y joyas favoritas directamente desde Day Collection Luxe.
+    </p>
+    <a href="mailto:hello@daycollectionluxe.com" class="btn">Escríbenos</a>
+  </section>
 
-</section>
+  <footer>
+    © 2026 Day Collection Luxe. Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>
