@@ -49,6 +49,11 @@
       color: #c9972b;
     }
 
+    .cart-link {
+      font-weight: 600;
+      color: #c9972b;
+    }
+
     .hero {
       text-align: center;
       padding: 100px 20px 80px;
@@ -95,6 +100,8 @@
       font-size: 16px;
       font-family: 'Montserrat', sans-serif;
       transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -146,6 +153,7 @@
       text-decoration: none;
       display: block;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
     }
 
     .card:hover {
@@ -154,10 +162,18 @@
     }
 
     .card h3 {
-      color: #c9972b;
       margin-bottom: 10px;
       font-size: 24px;
       font-family: 'Montserrat', sans-serif;
+    }
+
+    .card h3 a {
+      text-decoration: none;
+      color: #c9972b;
+    }
+
+    .card h3 a:hover {
+      opacity: 0.8;
     }
 
     .card p {
@@ -165,6 +181,42 @@
       color: #666;
       font-family: 'Montserrat', sans-serif;
       margin: 0;
+    }
+
+    .add-cart {
+      margin-top: 18px;
+      background: #c9972b;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    .add-cart:hover {
+      background: #b78622;
+    }
+
+    .cart-box {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      text-align: left;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .cart-box ul {
+      padding-left: 20px;
+    }
+
+    .cart-box li {
+      margin-bottom: 10px;
+      color: #555;
     }
 
     footer {
@@ -215,6 +267,7 @@
       <a href="#fragrances">Fragrances</a>
       <a href="#jewelry">Jewelry</a>
       <a href="#contact">Contact</a>
+      <a href="#cart" class="cart-link">Cart (<span id="cart-count">0</span>)</a>
     </nav>
   </header>
 
@@ -237,20 +290,23 @@
     </p>
 
     <div class="cards">
-      <a href="womens-fragrances.html" class="card">
-        <h3>Women's Fragrances</h3>
+      <div class="card">
+        <h3><a href="womens-fragrances.html">Women's Fragrances</a></h3>
         <p>Soft, floral, and sophisticated aromas to highlight your essence.</p>
-      </a>
+        <button class="add-cart" onclick="addToCart(`Women's Fragrances`)">Add to Cart</button>
+      </div>
 
-      <a href="mens-fragrances.html" class="card">
-        <h3>Men's Fragrances</h3>
+      <div class="card">
+        <h3><a href="mens-fragrances.html">Men's Fragrances</a></h3>
         <p>Intense, clean, and modern notes for a confident and elegant style.</p>
-      </a>
+        <button class="add-cart" onclick="addToCart(`Men's Fragrances`)">Add to Cart</button>
+      </div>
 
-      <a href="unisex-collection.html" class="card">
-        <h3>Unisex Collection</h3>
+      <div class="card">
+        <h3><a href="unisex-collection.html">Unisex Collection</a></h3>
         <p>Versatile perfumes that combine luxury, freshness, and personality.</p>
-      </a>
+        <button class="add-cart" onclick="addToCart(`Unisex Collection`)">Add to Cart</button>
+      </div>
     </div>
   </section>
 
@@ -261,20 +317,23 @@
     </p>
 
     <div class="cards">
-      <a href="necklaces.html" class="card">
-        <h3>Necklaces</h3>
+      <div class="card">
+        <h3><a href="necklaces.html">Necklaces</a></h3>
         <p>Refined and elegant designs that complement your style with luxury.</p>
-      </a>
+        <button class="add-cart" onclick="addToCart('Necklaces')">Add to Cart</button>
+      </div>
 
-      <a href="bracelets.html" class="card">
-        <h3>Bracelets</h3>
+      <div class="card">
+        <h3><a href="bracelets.html">Bracelets</a></h3>
         <p>Subtle and sophisticated details for every occasion.</p>
-      </a>
+        <button class="add-cart" onclick="addToCart('Bracelets')">Add to Cart</button>
+      </div>
 
-      <a href="rings.html" class="card">
-        <h3>Rings</h3>
+      <div class="card">
+        <h3><a href="rings.html">Rings</a></h3>
         <p>Modern pieces with delicate finishes and a premium touch.</p>
-      </a>
+        <button class="add-cart" onclick="addToCart('Rings')">Add to Cart</button>
+      </div>
     </div>
   </section>
 
@@ -286,9 +345,56 @@
     <a href="mailto:hello@daycollectionluxe.com" class="btn">Write to us</a>
   </section>
 
+  <section class="section blue" id="cart">
+    <h2>Shopping Cart</h2>
+    <p>Your selected items will appear here.</p>
+
+    <div id="cart-items" class="cart-box">
+      <p>Your cart is empty.</p>
+    </div>
+
+    <button class="btn" onclick="checkout()">Checkout</button>
+  </section>
+
   <footer>
     © 2026 Day Collection Luxe. All rights reserved.
   </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(productName) {
+      cart.push(productName);
+      document.getElementById('cart-count').textContent = cart.length;
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById('cart-items');
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+      }
+
+      let html = '<ul>';
+      cart.forEach((item) => {
+        html += '<li>' + item + '</li>';
+      });
+      html += '</ul>';
+
+      cartItems.innerHTML = html;
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert('Your cart is empty.');
+        return;
+      }
+
+      alert('Checkout coming soon. Your selected items: ' + cart.join(', '));
+    }
+  </script>
 
 </body>
 </html>
