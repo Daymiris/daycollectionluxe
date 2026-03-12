@@ -11,16 +11,26 @@
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
 font-family:'Montserrat',sans-serif;
 background:#eaf6ff;
-margin:0;
 text-align:center;
 }
 
+/* HEADER */
+
 header{
 background:white;
-padding:20px;
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
@@ -28,13 +38,36 @@ box-shadow:0 2px 10px rgba(0,0,0,0.08);
 font-family:'Allura',cursive;
 font-size:42px;
 color:#c9972b;
+text-decoration:none;
 }
+
+/* NAVIGATION */
+
+nav{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#444;
+font-size:16px;
+}
+
+nav a:hover{
+color:#c9972b;
+}
+
+/* PAGE TITLE */
 
 h1{
 margin-top:40px;
 font-size:36px;
 color:#3b2a1a;
 }
+
+/* CARDS */
 
 .cards{
 display:flex;
@@ -52,6 +85,7 @@ border-radius:20px;
 box-shadow:0 4px 15px rgba(0,0,0,0.06);
 text-decoration:none;
 color:#333;
+transition:0.3s;
 }
 
 .card:hover{
@@ -60,7 +94,10 @@ transform:translateY(-6px);
 
 .card h3{
 color:#c9972b;
+margin-bottom:10px;
 }
+
+/* BACK BUTTON */
 
 .back{
 display:inline-block;
@@ -72,13 +109,41 @@ border-radius:30px;
 text-decoration:none;
 }
 
+.back:hover{
+background:#b78622;
+}
+
+@media (max-width:768px){
+
+header{
+flex-direction:column;
+gap:10px;
+padding:20px;
+}
+
+nav{
+justify-content:center;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">Day Collection Luxe</div>
+
+<a href="index.html" class="logo">Day Collection Luxe</a>
+
+<nav>
+<a href="index.html#home">Home</a>
+<a href="index.html#inicio">Start</a>
+<a href="index.html#fragrances">Fragrances</a>
+<a href="index.html#jewelry">Jewelry</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+
 </header>
 
 <h1>Our Collection</h1>
