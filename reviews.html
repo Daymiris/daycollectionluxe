@@ -13,8 +13,8 @@
 body{
 font-family:'Montserrat',sans-serif;
 background:#eaf6ff;
-text-align:center;
 margin:0;
+text-align:center;
 }
 
 header{
@@ -33,12 +33,8 @@ color:#c9972b;
 text-decoration:none;
 }
 
-nav{
-display:flex;
-gap:20px;
-}
-
 nav a{
+margin-left:20px;
 text-decoration:none;
 color:#444;
 }
@@ -49,25 +45,82 @@ color:#c9972b;
 
 h1{
 margin-top:40px;
+color:#3b2a1a;
+}
+
+.review-form{
+max-width:600px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:1px solid #ddd;
+font-family:'Montserrat',sans-serif;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+.stars{
+font-size:28px;
+margin:10px 0;
+cursor:pointer;
+}
+
+.star{
+color:#ccc;
+}
+
+.star.active{
 color:#c9972b;
 }
 
+button{
+margin-top:15px;
+background:#c9972b;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-family:'Montserrat',sans-serif;
+}
+
+button:hover{
+background:#b78622;
+}
+
 .reviews{
-max-width:800px;
-margin:auto;
-padding:40px 20px;
+max-width:700px;
+margin:40px auto;
 }
 
 .review{
 background:white;
-padding:25px;
+padding:20px;
+border-radius:12px;
 margin-bottom:20px;
-border-radius:15px;
 box-shadow:0 4px 15px rgba(0,0,0,0.06);
+text-align:left;
 }
 
 .review strong{
 color:#c9972b;
+}
+
+.review-stars{
+color:#c9972b;
+margin-bottom:10px;
 }
 
 </style>
@@ -83,6 +136,7 @@ color:#c9972b;
 <a href="index.html#home">Home</a>
 <a href="index.html#fragrances">Fragrances</a>
 <a href="index.html#jewelry">Jewelry</a>
+<a href="reviews.html">Reviews</a>
 <a href="index.html#contact">Contact</a>
 </nav>
 
@@ -90,24 +144,102 @@ color:#c9972b;
 
 <h1>Customer Reviews</h1>
 
-<div class="reviews">
+<div class="review-form">
 
+<input id="name" placeholder="Your name">
+
+<div class="stars" id="starContainer">
+<span class="star" data-value="1">★</span>
+<span class="star" data-value="2">★</span>
+<span class="star" data-value="3">★</span>
+<span class="star" data-value="4">★</span>
+<span class="star" data-value="5">★</span>
+</div>
+
+<textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+<button onclick="submitReview()">Submit Review</button>
+
+</div>
+
+<div class="reviews" id="reviewsList"></div>
+
+<script>
+
+let selectedRating = 0;
+
+const stars = document.querySelectorAll(".star");
+
+stars.forEach(star=>{
+star.addEventListener("click", function(){
+
+selectedRating = this.dataset.value;
+
+stars.forEach(s=>s.classList.remove("active"));
+
+for(let i=0;i<selectedRating;i++){
+stars[i].classList.add("active");
+}
+
+});
+});
+
+function loadReviews(){
+
+const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+const container = document.getElementById("reviewsList");
+
+container.innerHTML = "";
+
+reviews.forEach(r=>{
+
+let stars = "★".repeat(r.rating);
+
+container.innerHTML += `
 <div class="review">
-<strong>Sophia</strong>
-<p>The perfume quality is amazing. I will definitely buy again!</p>
+<strong>${r.name}</strong>
+<div class="review-stars">${stars}</div>
+<p>${r.text}</p>
 </div>
+`;
 
-<div class="review">
-<strong>Michael</strong>
-<p>The bracelet I bought looks very elegant. Great service.</p>
-</div>
+});
 
-<div class="review">
-<strong>Emma</strong>
-<p>I love the fragrances, they smell luxurious and last all day.</p>
-</div>
+}
 
-</div>
+function submitReview(){
+
+const name = document.getElementById("name").value;
+const text = document.getElementById("reviewText").value;
+
+if(!name || !text || selectedRating == 0){
+alert("Please complete all fields and rating.");
+return;
+}
+
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+reviews.push({
+name:name,
+text:text,
+rating:selectedRating
+});
+
+localStorage.setItem("reviews", JSON.stringify(reviews));
+
+document.getElementById("name").value="";
+document.getElementById("reviewText").value="";
+selectedRating=0;
+
+stars.forEach(s=>s.classList.remove("active"));
+
+loadReviews();
+
+}
+
+loadReviews();
+
+</script>
 
 </body>
 </html>
