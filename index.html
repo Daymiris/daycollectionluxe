@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Day Collection Luxe</title>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     * {
@@ -275,6 +276,79 @@
       text-align: center;
     }
 
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .contact-buttons .btn {
+      flex: none;
+    }
+
+    .social {
+      margin-top: 35px;
+    }
+
+    .social p {
+      margin-bottom: 15px;
+      color: #3b2a1a;
+      font-weight: 500;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .social-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: white;
+      color: #c9972b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+    }
+
+    .social-circle:hover {
+      transform: translateY(-4px);
+      background: #c9972b;
+      color: white;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      z-index: 3000;
+      transition: 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
     footer {
       background: white;
       text-align: center;
@@ -314,13 +388,20 @@
         width: auto;
         top: 140px;
       }
-}
-    .contact-buttons{
-display:flex;
-justify-content:center;
-gap:40px;
-margin-top:30px;
-}
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .whatsapp-float {
+        right: 15px;
+        bottom: 15px;
+        width: 54px;
+        height: 54px;
+        font-size: 28px;
+      }
     }
   </style>
 </head>
@@ -411,22 +492,43 @@ margin-top:30px;
     <p>
       Very soon you will be able to shop your favorite fragrances and jewelry directly from Day Collection Luxe.
     </p>
+
     <div class="contact-buttons">
+      <a href="mailto:hello@daycollectionluxe.com" class="btn">Write to us</a>
 
-<a href="mailto:hello@daycollectionluxe.com" class="btn">
-Write to us
-</a>
+      <a href="https://wa.me/1234567890" class="btn">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
 
-<a href="reviews.html" class="btn">
-Reviews
-</a>
+      <a href="reviews.html" class="btn">Reviews</a>
+    </div>
 
-</div>
+    <div class="social">
+      <p>Follow us:</p>
+
+      <div class="social-icons">
+        <a href="#" class="social-circle" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="#" class="social-circle" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="#" class="social-circle" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </div>
   </section>
 
   <footer>
     © 2026 Day Collection Luxe. All rights reserved.
   </footer>
+
+  <a href="https://wa.me/1234567890" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
   <script>
     let cart = [];
