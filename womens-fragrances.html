@@ -1,59 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women's Fragrances | Day Collection Luxe</title>
 
-<title>Women's Fragrances</title>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #eaf6ff;
+      color: #333;
+    }
 
-body{
-font-family:'Montserrat',sans-serif;
-background:#eaf6ff;
-text-align:center;
-padding:80px 20px;
-}
+    header {
+      background: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-h1{
-font-family:'Montserrat',sans-serif;
-font-size:40px;
-font-weight:600;
-color:#c9972b;
-margin-bottom:20px;
-}
+    .logo {
+      font-family: 'Allura', cursive;
+      font-size: 42px;
+      color: #c9972b;
+      text-decoration: none;
+    }
 
-p{
-font-size:18px;
-color:#666;
-max-width:700px;
-margin:auto;
-margin-bottom:40px;
-}
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-a{
-background:#c9972b;
-color:white;
-padding:12px 25px;
-border-radius:30px;
-text-decoration:none;
-}
+    nav a {
+      text-decoration: none;
+      color: #444;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-</style>
+    nav a:hover {
+      color: #c9972b;
+    }
+
+    .cart-icon {
+      color: #c9972b;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .page-content {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: #c9972b;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #666;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: #c9972b;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      transition: 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #b78622;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .logo {
+        font-size: 36px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .page-content {
+        padding: 60px 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Women's Fragrances</h1>
+  <header>
+    <a href="index.html" class="logo">Day Collection Luxe</a>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#fragrances">Fragrances</a>
+      <a href="index.html#jewelry">Jewelry</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#cart" class="cart-icon">🛒 <span>0</span></a>
+    </nav>
+  </header>
 
-<p>
-Here you can showcase your perfumes for women.
-Soon you can add product images, prices and descriptions.
-</p>
+  <section class="page-content">
+    <h1>Women's Fragrances</h1>
 
-<a href="index.html">Back to Home</a>
+    <p>
+      Here you can showcase your perfumes for women.
+      Soon you can add product images, prices and descriptions.
+    </p>
+
+    <a href="index.html" class="back-btn">Back to Home</a>
+  </section>
 
 </body>
 </html>
