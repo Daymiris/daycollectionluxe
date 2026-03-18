@@ -37,6 +37,23 @@
       font-size: 42px;
       color: #c9972b;
     }
+    .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 60px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-family: 'Allura', cursive;
+  font-size: 32px;
+  color: #c9972b;
+}
 
     nav {
       display: flex;
@@ -421,17 +438,21 @@ color:#c9972b;
 <body>
 
   <header>
-    <div class="logo">Day Collection Luxe</div>
-    <nav>
-      <a href="#fragrances">Fragrances</a>
-      <a href="#jewelry">Jewelry</a>
-      <a href="#contact">Contact</a>
+  <a href="#home" class="Logo-container">
+    <img src="Logo.png" alt="Day Collection Luxe" class="Logo-img">
+    <span class="logo-text">Day Collection Luxe</span>
+  </a>
 
-      <div class="cart-icon" onclick="toggleCart()">
-        🛒 <span id="cart-count">0</span>
-      </div>
-    </nav>
-  </header>
+  <nav>
+    <a href="#fragrances">Fragrances</a>
+    <a href="#jewelry">Jewelry</a>
+    <a href="#contact">Contact</a>
+
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </div>
+  </nav>
+</header>
 
   <div id="cart-panel" class="cart-panel">
     <h3>Your Cart</h3>
