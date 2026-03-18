@@ -21,16 +21,22 @@
     }
 
  header {
-  background: transparent;
+  background: #dff0fb; /* color inicial */
   padding: 18px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: none;
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.4s ease;
+}
+    .header-blue {
+  background: #dff0fb;
+}
+
+.header-white {
+  background: white;
 }
 
 header.scrolled {
@@ -642,6 +648,24 @@ window.addEventListener('scroll', function () {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
+  }
+});
+    const header = document.querySelector('header');
+
+window.addEventListener('scroll', function () {
+  const scrollY = window.scrollY;
+
+  const hero = document.getElementById('home');
+  const jewelry = document.getElementById('jewelry');
+
+  const jewelryTop = jewelry.offsetTop;
+
+  if (scrollY < jewelryTop - 100) {
+    header.classList.add('header-blue');
+    header.classList.remove('header-white');
+  } else {
+    header.classList.add('header-white');
+    header.classList.remove('header-blue');
   }
 });
   </script>
