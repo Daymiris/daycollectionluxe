@@ -29,23 +29,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background 0.35s ease, box-shadow 0.35s ease;
   box-shadow: none;
-}
-
-.header-blue {
-  background: #dff0fb;
-  box-shadow: none;
-}
-
-.header-light {
-  background: #eef7fc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-
-.header-white {
-  background: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
     .logo-img {
@@ -138,7 +122,7 @@ header {
     .hero {
   text-align: center;
   padding: 100px 20px 80px;
-  background: linear-gradient(to bottom, #dff0fb 0%, #dff0fb 20%, #ffffff 100%);
+  background: linear-gradient(to bottom, #dff0fb 0%, #dff0fb 35%, #ffffff 100%);
 }
 
     .brand-title {
@@ -644,26 +628,6 @@ color:#c9972b;
         panel.style.display = 'none';
       }
     };
-    const header = document.querySelector('header');
-const jewelry = document.getElementById('jewelry');
-
-function updateHeaderColor() {
-  const scrollY = window.scrollY;
-  const jewelryTop = jewelry.offsetTop;
-
-  header.classList.remove('header-blue', 'header-light', 'header-white');
-
-  if (scrollY < jewelryTop - 320) {
-    header.classList.add('header-blue');
-  } else if (scrollY < jewelryTop - 120) {
-    header.classList.add('header-light');
-  } else {
-    header.classList.add('header-white');
-  }
-}
-
-window.addEventListener('scroll', updateHeaderColor);
-window.addEventListener('load', updateHeaderColor);
   </script>
 
 </body>
