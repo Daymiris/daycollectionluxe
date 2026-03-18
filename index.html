@@ -20,8 +20,8 @@
       color: #333;
     }
 
- header {
-  background: #dff0fb; /* color inicial */
+header {
+  background: #dff0fb;
   padding: 18px 50px;
   display: flex;
   justify-content: space-between;
@@ -29,20 +29,18 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: background 0.4s ease;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: none;
 }
-    .header-blue {
+
+.header-blue {
   background: #dff0fb;
+  box-shadow: none;
 }
 
 .header-white {
   background: white;
-}
-
-header.scrolled {
-  background: rgba(223, 240, 251, 0.92);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
     .logo-img {
@@ -642,32 +640,23 @@ color:#c9972b;
       }
     };
     const header = document.querySelector('header');
+const jewelry = document.getElementById('jewelry');
 
-window.addEventListener('scroll', function () {
-  if (window.scrollY > 20) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-    const header = document.querySelector('header');
-
-window.addEventListener('scroll', function () {
+function updateHeaderColor() {
   const scrollY = window.scrollY;
-
-  const hero = document.getElementById('home');
-  const jewelry = document.getElementById('jewelry');
-
   const jewelryTop = jewelry.offsetTop;
 
-  if (scrollY < jewelryTop - 100) {
+  if (scrollY < jewelryTop - 120) {
     header.classList.add('header-blue');
     header.classList.remove('header-white');
   } else {
     header.classList.add('header-white');
     header.classList.remove('header-blue');
   }
-});
+}
+
+window.addEventListener('scroll', updateHeaderColor);
+window.addEventListener('load', updateHeaderColor);
   </script>
 
 </body>
