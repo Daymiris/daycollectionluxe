@@ -20,42 +20,29 @@
       color: #333;
     }
 
- header {
-  background: #dff0fb; /* color inicial */
-  padding: 18px 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: background 0.4s ease;
-}
-    .header-blue {
-  background: #dff0fb;
-}
+    header {
+      background: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.header-white {
-  background: white;
-}
-
-header.scrolled {
-  background: rgba(223, 240, 251, 0.92);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
-
-    .logo-img {
-  height: 90px;
-  object-fit: contain;
-  display: block;
-}
+    .logo {
+      font-family: 'Allura', cursive;
+      font-size: 42px;
+      color: #c9972b;
+    }
 
     nav {
       display: flex;
       align-items: center;
       gap: 20px;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -69,16 +56,15 @@ header.scrolled {
       color: #c9972b;
     }
 
-   .cart-icon {
-  cursor: pointer;
-  font-size: 18px;
-  color: #c9972b;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: 10px;
-}
+    .cart-icon {
+      cursor: pointer;
+      font-size: 18px;
+      color: #c9972b;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
     .cart-icon:hover {
       opacity: 0.85;
@@ -133,10 +119,10 @@ header.scrolled {
     }
 
     .hero {
-  text-align: center;
-  padding: 100px 20px 80px;
-  background: linear-gradient(to bottom, #dff0fb 0%, #dff0fb 20%, #ffffff 100%);
-}
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: linear-gradient(to bottom, #dff0fb, #ffffff);
+    }
 
     .brand-title {
       font-family: 'Allura', cursive;
@@ -401,15 +387,13 @@ color:#c9972b;
         padding: 0 10px;
       }
 
-     nav {
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
+      nav {
+        justify-content: center;
+      }
 
-.logo-img {
-  height: 70px;
-}
+      .logo {
+        font-size: 36px;
+      }
 
       .cart-panel {
         right: 10px;
@@ -437,9 +421,7 @@ color:#c9972b;
 <body>
 
   <header>
-    <a href="#home">
-  <img src="Logo.png" class="logo-img">
-</a>
+    <div class="logo">Day Collection Luxe</div>
     <nav>
       <a href="#fragrances">Fragrances</a>
       <a href="#jewelry">Jewelry</a>
@@ -510,10 +492,7 @@ color:#c9972b;
         <h3><a href="bracelets.html">Bracelets</a></h3>
         <p>Subtle and sophisticated details for every occasion.</p>
       </div>
-<div class="card">
-  <h3><a href="earrings.html">Earrings</a></h3>
-  <p>Elegant earrings to enhance your beauty with a delicate touch.</p>
-</div>
+
       <div class="card">
         <h3><a href="rings.html">Rings</a></h3>
         <p>Modern pieces with delicate finishes and a premium touch.</p>
@@ -530,7 +509,7 @@ color:#c9972b;
     <div class="contact-buttons">
       <a href="mailto:hello@daycollectionluxe.com" class="btn">Write to us</a>
 
-      <a href="https://wa.me/17864643131" class="btn">
+      <a href="https://wa.me/+17864643131" class="btn">
         <i class="fa-brands fa-whatsapp"></i> WhatsApp
       </a>
 
@@ -576,7 +555,7 @@ color:#c9972b;
 
 </footer>
 
-  <a href="https://wa.me/17864643131" class="whatsapp-float" aria-label="WhatsApp">
+  <a href="https://wa.me/+17864643131" class="whatsapp-float" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
@@ -641,33 +620,6 @@ color:#c9972b;
         panel.style.display = 'none';
       }
     };
-    const header = document.querySelector('header');
-
-window.addEventListener('scroll', function () {
-  if (window.scrollY > 20) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-    const header = document.querySelector('header');
-
-window.addEventListener('scroll', function () {
-  const scrollY = window.scrollY;
-
-  const hero = document.getElementById('home');
-  const jewelry = document.getElementById('jewelry');
-
-  const jewelryTop = jewelry.offsetTop;
-
-  if (scrollY < jewelryTop - 100) {
-    header.classList.add('header-blue');
-    header.classList.remove('header-white');
-  } else {
-    header.classList.add('header-white');
-    header.classList.remove('header-blue');
-  }
-});
   </script>
 
 </body>
